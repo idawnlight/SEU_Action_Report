@@ -49,7 +49,7 @@ def main():
             return
 
         print("成功登录")
-        driver.find_element_by_xpath('/html/body/main/article/section/div[2]/div[1]').click()
+        driver.find_element_by_xpath('//div[@data-action="add"]').click()
         time.sleep(t)
 
         if '今日已填报！' in driver.page_source:
@@ -58,9 +58,9 @@ def main():
             driver.quit()
             return
 
-        elif '每日健康申报截止时间15:00' in driver.page_source:
-            print(name + '\t' + '每日健康申报截止时间15:00')
-            msg += name + '\t' + '每日健康申报截止时间15:00' + '\n\n'
+        elif '每日健康申报截止' in driver.page_source:
+            print(name + '\t' + '每日健康申报截止')
+            msg += name + '\t' + '每日健康申报截止' + '\n\n'
             driver.quit()
             return
 
@@ -69,11 +69,11 @@ def main():
         if "English Name" in  driver.page_source:
             driver.find_element_by_xpath(
                 '/html/body/div[11]/div/div[1]/section/div[2]/div/div[3]/div[2]/div[8]/div[1]/div/input').send_keys(
-                "36.7")
+                round(random.uniform(36.3, 36.8), 1))
         else:
             driver.find_element_by_xpath(
                 '/html/body/div[11]/div/div[1]/section/div[2]/div/div[4]/div[2]/div[1]/div[1]/div/input').send_keys(
-                "36.7")
+                round(random.uniform(36.3, 36.8), 1))
         print("输入体温")
         time.sleep(t)
 
