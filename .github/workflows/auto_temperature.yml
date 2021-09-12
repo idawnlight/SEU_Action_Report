@@ -27,5 +27,5 @@ jobs:
         KU: ${{ secrets.KU }}
         SERVERCHAN: ${{ secrets.SERVERCHAN }}
       run: |
-        bash Init_Building_Dependencies.sh
+        pip3 install selenium requests
         python3 auto_temperature.py
