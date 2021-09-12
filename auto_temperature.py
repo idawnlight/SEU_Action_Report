@@ -73,8 +73,8 @@ def open_form():
 
     if '今日已填报' in driver.page_source:
         success('今日已填报')
-    elif '每日健康申报截止' in driver.page_source:
-        fail('每日健康申报已截止')
+    elif '每日健康申报截止' in driver.page_source | '请在此时间内填报' in driver.page_source:
+        fail('不在健康申报时间内')
 
 
 def fill_form():
