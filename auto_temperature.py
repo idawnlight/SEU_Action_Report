@@ -82,28 +82,21 @@ def fill_form():
 
     print("输入体温 " + str(temperature))
 
-    # TODO: better xpath
-    if "English Name" in driver.page_source:
-        driver.find_element_by_xpath(
-            '/html/body/div[11]/div/div[1]/section/div[2]/div/div[3]/div[2]/div[8]/div[1]/div/input').send_keys(
-            temperature)
-    else:
-        driver.find_element_by_xpath(
-            '/html/body/div[11]/div/div[1]/section/div[2]/div/div[4]/div[2]/div[1]/div[1]/div/input').send_keys(
-            temperature)
+    driver.find_element_by_xpath(
+        '//input[@name="DZ_JSDTCJTW"]').send_keys(
+        temperature)
     time.sleep(t2)
 
-    div = driver.find_element_by_xpath('//*[@id="save"]')
+    div = driver.find_element_by_xpath('//div[@id="save"]')
     # 将下拉滑动条滑动到当前 div 区域
     driver.execute_script("arguments[0].scrollIntoView();", div)
     time.sleep(t2)
 
-    driver.find_element_by_xpath('//*[@id="save"]').click()
+    driver.find_element_by_xpath('//div[@id="save"]').click()
     print("点击保存")
     time.sleep(t1)
     if "确定数据无误并提交数据" in driver.page_source:
-        # TODO: better xpath
-        driver.find_element_by_xpath('/html/body/div[62]/div[1]/div[1]/div[2]/div[2]/a[1]').click()
+        driver.find_element_by_xpath('//a[text()="确认"]').click()
         success('体温上报成功')
     else:
         fail('请主动上报一次，来完善新增信息')
