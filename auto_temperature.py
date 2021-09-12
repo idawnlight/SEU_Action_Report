@@ -31,8 +31,7 @@ t2 = 5
 
 
 def main():
-    tz = timezone('Asia/Shanghai')
-    date_time = datetime.datetime.now(tz).strftime("%Y-%m-%d, %H:%M:%S")
+    date_time = datetime.datetime.now(tz = timezone('Asia/Shanghai')).strftime("%Y-%m-%d, %H:%M:%S")
     print("开始体温上报 @" + date_time)
 
     print("尝试登录...")

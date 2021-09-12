@@ -23,9 +23,6 @@ jobs:
         TZ: Asia/Shanghai
         ID: ${{ secrets.ID }}
         PASSWORD: ${{ secrets.PASSWORD }}
-        NAME: ${{ secrets.NAME }}
-        KU: ${{ secrets.KU }}
-        SERVERCHAN: ${{ secrets.SERVERCHAN }}
       run: |
         pip3 install -r requirements.txt
         python3 auto_temperature.py
