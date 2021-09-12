@@ -1,6 +1,5 @@
 # coding: utf-8
 # Author：quzard
-from Tui import *
 from selenium import webdriver
 import random
 import time
@@ -20,7 +19,6 @@ def main():
     global username
     global password
     global name
-    global kutui, serverchan
     try:
         date_time = datetime.datetime.now().strftime("%Y-%m-%d, %H:%M:%S")
         print("时间:", date_time)
@@ -122,20 +120,6 @@ if __name__ == '__main__':
     else:
         name = "无名氏"
 
-    kutui = serverchan = False
-
-    if "KU" in os.environ:
-        kutui_key = os.environ["KU"]
-        kutui = True
-    else:
-        kutui_key = ""
-
-    if "SERVERCHAN" in os.environ:
-        serverchan_sckey = os.environ["SERVERCHAN"]
-        serverchan = True
-    else:
-        serverchan_sckey = ""
-
     #time.sleep(random.randint(0, 300))
     
     error = False
@@ -153,11 +137,7 @@ if __name__ == '__main__':
 
     if error:
         subject = name + '\t' + '体温上报\t失败'
-        if serverchan: server_post(subject, msg, serverchan_sckey)
-        if kutui: kutui_post(subject, msg, kutui_key)
         sys.exit(1)
 
     else:
         subject = name + '\t' + '体温上报\t成功'
-        if serverchan: server_post(subject, msg, serverchan_sckey)
-        if kutui: kutui_post(subject, msg, kutui_key)
