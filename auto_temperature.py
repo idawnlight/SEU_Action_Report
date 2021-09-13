@@ -31,7 +31,7 @@ t2 = 5
 
 
 def main():
-    date_time = datetime.datetime.now(tz = timezone('Asia/Shanghai')).strftime("%Y-%m-%d, %H:%M:%S")
+    date_time = datetime.datetime.now(tz=timezone('Asia/Shanghai')).strftime("%Y-%m-%d, %H:%M:%S")
     print("开始体温上报 @" + date_time)
 
     print("尝试登录...")
@@ -73,7 +73,7 @@ def open_form():
 
     if '今日已填报' in driver.page_source:
         success('今日已填报')
-    elif '每日健康申报截止' in driver.page_source | '请在此时间内填报' in driver.page_source:
+    elif ('每日健康申报截止' in driver.page_source) | ('请在此时间内填报' in driver.page_source):
         fail('不在健康申报时间内')
 
 
