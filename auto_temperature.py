@@ -78,9 +78,9 @@ def open_form():
 
 
 def fill_form():
-    temperature = round(random.uniform(36.3, 36.8), 1)
+    temperature = str(round(random.uniform(36.3, 36.8), 1))
 
-    print("输入体温 " + str(temperature))
+    print("输入体温 " + temperature)
 
     driver.find_element_by_xpath(
         '//input[@name="DZ_JSDTCJTW"]').send_keys(
