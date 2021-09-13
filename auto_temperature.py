@@ -26,7 +26,7 @@ else:
     print("未找到 PASSWORD")
     sys.exit(1)
 
-t1 = 30
+t1 = 20
 t2 = 5
 
 
@@ -97,6 +97,7 @@ def fill_form():
     time.sleep(t1)
     if "确定数据无误并提交数据" in driver.page_source:
         driver.find_element_by_xpath('//a[text()="确认"]').click()
+        time.sleep(t1)
         success('体温上报成功')
     else:
         fail('请主动上报一次，来完善新增信息')
