@@ -1,7 +1,7 @@
 name: SEU Auto Temperature
 on:
-  # schedule:
-  #   - cron: '10 23 * * *'
+  schedule:
+    - cron: '10 23 * * *'
     # cron 表达式，时区是 UTC 时间，比我们早 8 小时，如上所表示的是每天 UTC 时间的 23 点 10 分整， 北京时间的 07 点 10 分（24 小时制）
     # 可在此网站查询UTC时间和北京时间的换算关系 https://datetime360.com/cn/utc-beijing-time/
   watch:
